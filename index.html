@@ -2,36 +2,70 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Meu Primeiro Site</title>
+    <title>Minha Primeira Página</title>
+</head>
+<body>
+    <h1>Olá, Mundo!</h1>
+    <p>Este é meu primeiro código em HTML.</p>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Olá Mundo Estilizado</title>
+    <style>
+        /* O CSS começa aqui */
+        body {
+            background-color: #f0f2f5; /* Cor de fundo leve */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ocupa a altura total da tela */
+            margin: 0;
+        }
+
+        .cartao {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid #007bff;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Olá, Mundo!</h1>
-    <p>Este é o meu primeiro código em HTML.</p>
-/* Configurações gerais da página */
-body {
-    background-color: #f0f2f5; /* Cor de fundo cinza clara */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Ocupa a altura toda da tela */
-    margin: 0;
-}
+    <div class="cartao">
+        <h1>Olá, Mundo!</h1>
+        <p>Este código agora tem estilo profissional.</p>
+        <button onclick="alert('Oi!')">Clique aqui</button>
+    </div>
 
-/* Estilizando o título */
-h1 {
-    color: #2c3e50;
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 10px;
-}
-
-/* Estilizando o parágrafo */
-p {
-    color: #7f8c8d;
-    font-size: 1.2rem;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 5px;
-}
+</body>
+</html>
