@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interface Futurística Pro</title>
+    <title>Barbie Future World</title>
     <style>
         :root {
-            --primary: #00f2ff;
-            --secondary: #7000ff;
-            --bg-dark: #05050a;
+            --barbie-pink: #ff00a1;
+            --barbie-glow: #ff66c4;
+            --soft-pink: #ffe6f2;
+            --dark-bg: #1a000d;
         }
 
         * {
@@ -18,139 +19,150 @@
         }
 
         body {
-            background-color: var(--bg-dark);
-            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: var(--dark-bg);
+            /* Fundo com degradê inspirado na Mattel */
+            background: radial-gradient(circle at center, #2d001a 0%, #0a0005 100%);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #ffffff;
+            color: white;
             overflow: hidden;
             position: relative;
         }
 
-        /* Container de Partículas */
-        #particles-container {
+        /* Partículas de Brilho (Glitter Futurista) */
+        #glitter-container {
             position: absolute;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
+            z-index: 1;
         }
 
-        .particle {
+        .sparkle {
             position: absolute;
-            background: white;
+            background: var(--barbie-pink);
             border-radius: 50%;
-            opacity: 0.5;
-            animation: float linear infinite;
+            filter: blur(1px);
+            box-shadow: 0 0 10px var(--barbie-glow);
+            animation: twinkle linear infinite;
         }
 
-        /* Cartão Neon Glass */
-        .cartao {
+        /* Cartão Glassmorphism Barbie */
+        .cartao-barbie {
             position: relative;
             z-index: 10;
-            background: rgba(10, 10, 20, 0.6);
-            backdrop-filter: blur(20px);
-            padding: 4rem;
-            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 3.5rem;
+            border-radius: 40px;
             text-align: center;
-            border: 1px solid rgba(0, 242, 255, 0.2);
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5), 
-                        inset 0 0 20px rgba(0, 242, 255, 0.05);
-            max-width: 450px;
+            border: 2px solid rgba(255, 0, 161, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 
+                        inset 0 0 30px rgba(255, 0, 161, 0.1);
+            max-width: 500px;
+            width: 90%;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom, #ffffff, var(--barbie-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3));
+            margin-bottom: 10px;
         }
 
         p {
-            color: #a0a0c0;
+            color: var(--soft-pink);
             font-size: 1.1rem;
-            margin-bottom: 40px;
-            letter-spacing: 0.5px;
+            margin-bottom: 35px;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
-        /* Botão com Brilho */
-        .btn-futuro {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        /* Botões */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn-barbie {
+            background: var(--barbie-pink);
             color: white;
+            text-decoration: none;
             border: none;
-            padding: 15px 40px;
-            border-radius: 12px;
+            padding: 15px 30px;
+            border-radius: 50px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(255, 0, 161, 0.4);
+            font-size: 0.9rem;
         }
 
-        .btn-futuro:hover {
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 242, 255, 0.4);
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--barbie-pink);
+            box-shadow: none;
         }
 
-        /* Animação das Partículas */
-        @keyframes float {
-            from { transform: translateY(0) translateX(0); }
-            to { transform: translateY(-100vh) translateX(20px); }
+        .btn-barbie:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(255, 0, 161, 0.6);
+            filter: brightness(1.2);
         }
 
-        /* Overlay de Vinheta */
-        .overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, transparent 20%, var(--bg-dark) 90%);
-            pointer-events: none;
-            z-index: 1;
+        /* Animação */
+        @keyframes twinkle {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100vh); opacity: 0; }
         }
+
     </style>
 </head>
 <body>
 
-    <div id="particles-container"></div>
-    <div class="overlay"></div>
+    <div id="glitter-container"></div>
 
-    <div class="cartao">
-        <h1>FUTURE</h1>
-        <p>Experiência imersiva gerada com puro código moderno.</p>
-        <button class="btn-futuro" onclick="alert('Protocolo iniciado!')">Ativar Sistema</button>
+    <div class="cartao-barbie">
+        <h1>BARBIE</h1>
+        <p>You can be anything, even in the future.</p>
+        
+        <div class="btn-group">
+            <a href="https://shop.mattel.com/pt-br/pages/barbie" target="_blank" class="btn-barbie">Shop Now</a>
+            <button class="btn-barbie btn-outline" onclick="alert('Explorando a Dreamhouse 2.0...')">Explorar</button>
+        </div>
     </div>
 
     <script>
-        // Gerador de partículas dinâmico
-        const container = document.getElementById('particles-container');
-        const particleCount = 60;
+        const container = document.getElementById('glitter-container');
+        const count = 50;
 
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
+        for (let i = 0; i < count; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
             
-            // Tamanhos aleatórios
-            const size = Math.random() * 3 + 'px';
-            particle.style.width = size;
-            particle.style.height = size;
+            const size = Math.random() * 4 + 2 + 'px';
+            sparkle.style.width = size;
+            sparkle.style.height = size;
             
-            // Posição inicial aleatória
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.top = Math.random() * 100 + 'vh';
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.top = Math.random() * 100 + 'vh';
             
-            // Velocidade e atraso aleatórios
-            const duration = Math.random() * 10 + 5 + 's';
-            const delay = Math.random() * 5 + 's';
-            particle.style.animationDuration = duration;
-            particle.style.animationDelay = delay;
+            sparkle.style.animationDuration = Math.random() * 3 + 2 + 's';
+            sparkle.style.animationDelay = Math.random() * 5 + 's';
 
-            container.appendChild(particle);
+            container.appendChild(sparkle);
         }
     </script>
 </body>
