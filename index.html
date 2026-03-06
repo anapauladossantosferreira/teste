@@ -2,59 +2,156 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Olá Mundo Estilizado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface Futurística Pro</title>
     <style>
-        /* O CSS começa aqui */
+        :root {
+            --primary: #00f2ff;
+            --secondary: #7000ff;
+            --bg-dark: #05050a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #f0f2f5; /* Cor de fundo leve */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Ocupa a altura total da tela */
-            margin: 0;
+            height: 100vh;
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
         }
 
+        /* Container de Partículas */
+        #particles-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float linear infinite;
+        }
+
+        /* Cartão Neon Glass */
         .cartao {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+            background: rgba(10, 10, 20, 0.6);
+            backdrop-filter: blur(20px);
+            padding: 4rem;
+            border-radius: 30px;
             text-align: center;
-            border-top: 5px solid #007bff;
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5), 
+                        inset 0 0 20px rgba(0, 242, 255, 0.05);
+            max-width: 450px;
         }
 
         h1 {
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3));
         }
 
         p {
-            color: #666;
+            color: #a0a0c0;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
         }
 
-        button {
-            background-color: #007bff;
+        /* Botão com Brilho */
+        .btn-futuro {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 15px 40px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
         }
 
-        button:hover {
-            background-color: #0056b3;
+        .btn-futuro:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 242, 255, 0.4);
+        }
+
+        /* Animação das Partículas */
+        @keyframes float {
+            from { transform: translateY(0) translateX(0); }
+            to { transform: translateY(-100vh) translateX(20px); }
+        }
+
+        /* Overlay de Vinheta */
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, var(--bg-dark) 90%);
+            pointer-events: none;
+            z-index: 1;
         }
     </style>
 </head>
 <body>
 
+    <div id="particles-container"></div>
+    <div class="overlay"></div>
+
     <div class="cartao">
-        <h1>Olá, Mundo!</h1>
-        <p>Este código agora tem estilo profissional.</p>
-        <button onclick="alert('Oi!')">Clique aqui</button>
+        <h1>FUTURE</h1>
+        <p>Experiência imersiva gerada com puro código moderno.</p>
+        <button class="btn-futuro" onclick="alert('Protocolo iniciado!')">Ativar Sistema</button>
     </div>
 
+    <script>
+        // Gerador de partículas dinâmico
+        const container = document.getElementById('particles-container');
+        const particleCount = 60;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Tamanhos aleatórios
+            const size = Math.random() * 3 + 'px';
+            particle.style.width = size;
+            particle.style.height = size;
+            
+            // Posição inicial aleatória
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = Math.random() * 100 + 'vh';
+            
+            // Velocidade e atraso aleatórios
+            const duration = Math.random() * 10 + 5 + 's';
+            const delay = Math.random() * 5 + 's';
+            particle.style.animationDuration = duration;
+            particle.style.animationDelay = delay;
+
+            container.appendChild(particle);
+        }
+    </script>
 </body>
 </html>
