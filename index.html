@@ -171,3 +171,110 @@
 
 
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Mundo Barbie</title>
+    <style>
+        /* Estilização Geral */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Fundo com a Imagem da Barbie */
+        .hero-section {
+            background-image: linear-gradient(rgba(255, 192, 203, 0.3), rgba(255, 105, 180, 0.3)), 
+                              url('https://r.jina.ai/i/594244c4524f469992f153a804702b85'); 
+            height: 100vh;
+            background-attachment: fixed; /* Efeito de movimento ao rolar */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Vidro fosco (Glassmorphism) para o conteúdo */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(255, 20, 147, 0.37);
+            max-width: 600px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Animação de flutuar */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 4rem;
+            text-shadow: 3px 3px 10px #ff1493;
+            margin: 0;
+            font-style: italic;
+            font-weight: 900;
+        }
+
+        p {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Botão com Glitter/Brilho */
+        .barbie-button {
+            background: linear-gradient(45deg, #ff007f, #ff69b4);
+            color: white;
+            padding: 15px 40px;
+            border: 3px solid white;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 15px #ff69b4;
+            margin-top: 20px;
+        }
+
+        .barbie-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px #ff1493, inset 0 0 10px white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <div class="glass-card">
+            <h1>Stay Fabulous</h1>
+            <p>Seja o que você quiser ser!</p>
+            <button class="barbie-button">Explorar Closet</button>
+        </div>
+    </div>
+
+    <div style="height: 100vh; background: white; text-align: center; padding-top: 50px; color: #ff1493;">
+        <h2>Bem-vinda à Dreamhouse</h2>
+        <p>Role para cima e para baixo para ver o fundo se movendo magicamente!</p>
+    </div>
+
+</body>
+</html>
