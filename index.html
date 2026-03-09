@@ -167,3 +167,81 @@
     </script>
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo da Barbie</title>
+    <style>
+        /* Remove margens padrão */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Container do vídeo */
+        .video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; /* Coloca o vídeo atrás de tudo */
+        }
+
+        /* Camada de brilho/cor sobre o vídeo (opcional) */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 105, 180, 0.2); /* Tom rosado transparente */
+            z-index: 0;
+        }
+
+        /* Conteúdo da página */
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 4rem;
+            background: #ff69b4;
+            padding: 20px;
+            border-radius: 15px;
+            border: 5px solid white;
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="video-background">
+        <source src="SEU_VIDEO_DA_BARBIE.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="content">
+        <h1>Bem-vinda ao Barbie World!</h1>
+    </div>
+
+</body>
+</html>
